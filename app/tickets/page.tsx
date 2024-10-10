@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Loader2, CircleCheck } from "lucide-react";
 import useFlightSelectionSheetStore from "@/hooks/useFileSelectionSheet";
 import FlightSelectionSheet from "@/components/FlightSelectionSheet";
 import { Card } from "@/components/ui/card";
