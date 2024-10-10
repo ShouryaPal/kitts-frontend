@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -26,14 +27,14 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     useFlightStore();
 
   const date = type === "departure" ? departureDate : returnDate;
-  const setDate = (newDate: Date | null) => {
+  const setDate = (newDate: Date | null | undefined) => {
     if (type === "departure") {
-      setDepartureDate(newDate);
+      setDepartureDate(newDate ?? null);
     } else {
-      setReturnDate(newDate);
+      setReturnDate(newDate ?? null);
     }
     if (onChange) {
-      onChange(newDate);
+      onChange(newDate ?? null);
     }
   };
 
@@ -66,7 +67,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         <Calendar
           mode="single"
           selected={date || undefined}
-          onSelect={(newDate: Date | null) => setDate(newDate)}
+          onSelect={(newDate: Date | undefined) => setDate(newDate ?? null)}
           initialFocus
         />
       </PopoverContent>
